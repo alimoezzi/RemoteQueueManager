@@ -1,3 +1,6 @@
+from multiprocessing.managers import BaseManager
+from multiprocessing import Process
+import time
 
 
 class QueueManager(BaseManager):
@@ -20,3 +23,8 @@ def producer(r_manger):
         i += 1
         # sleep can represent that the thread is doing some io task
         time.sleep(0.5)
+
+
+if __name__ == '__main__':
+    m = QueueManager(address=('localhost', 50000), authkey=b'abracadabra')
+    Process(target=producer, args=(m,)).start()
