@@ -30,8 +30,11 @@ def consumer(r_manger):
         time.sleep(random.random())
         cpu_work(2)
 
+
 if __name__ == '__main__':
     m = QueueManager(address=('localhost', 50000), authkey=b'abracadabra')
     processes = [Process(target=consumer, args=(m,), name=f'consumer {i}') for i in range(num_consumer)]
     for i in range(num_consumer):
         processes[i].start()
+    for i in range(num_consumer):
+        processes[i].join()
