@@ -2,12 +2,17 @@ from multiprocessing.managers import BaseManager
 from multiprocessing import Process, current_process
 import time
 import random
+
+
 class QueueManager(BaseManager):
     pass
 
 
 QueueManager.register('get_queue')
 QueueManager.register('get_max')
+
+num_consumer = 10
+
 
 def cpu_work(work_units):
     x = 0
