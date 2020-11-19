@@ -10,6 +10,9 @@ QueueManager.register('get_max')
 
 def producer(r_manger):
     i = 1
+    r_manger.connect()
+    serving_line = r_manger.get_queue()
+    size = r_manger.get_max().get("size")
     while True:
         print(
             f'Served {i % size} - remaining capacity: {size - serving_line.qsize()}')
