@@ -1,12 +1,12 @@
-# This is a sample Python script.
+""" Producers serving  for consumers """
+from multiprocessing.managers import BaseManager
+import multiprocessing as mp
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+queue = mp.Queue(20)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class QueueManager(BaseManager):
+    pass
 
 
 # Press the green button in the gutter to run the script.
