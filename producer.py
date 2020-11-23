@@ -28,4 +28,5 @@ def producer(r_manger):
 
 if __name__ == '__main__':
     m = QueueManager(address=('localhost', 50000), authkey=b'abracadabra')
-    Process(target=producer, args=(m,)).start()
+    for i in range(num_producer):
+        Process(target=producer, args=(m,), name=f'Producer {i}').start()
