@@ -1,5 +1,5 @@
 from multiprocessing.managers import BaseManager
-from multiprocessing import Process
+from multiprocessing import Process, current_process
 import time
 
 
@@ -19,7 +19,7 @@ def producer(r_manger):
     size = r_manger.get_max().get("size")
     while True:
         print(
-            f'Served {i % size} - remaining capacity: {size - serving_line.qsize()}')
+            f'{current_process().name} - remaining capacity: {size - serving_line.qsize()}')
         serving_line.put(f"Bowl #{i % size}")
         i += 1
         # sleep can represent that the thread is doing some io task
