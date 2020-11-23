@@ -10,6 +10,7 @@ class QueueManager(BaseManager):
 QueueManager.register('get_queue')
 QueueManager.register('get_max')
 
+num_producer = 2
 
 def producer(r_manger):
     i = 1
@@ -22,7 +23,7 @@ def producer(r_manger):
         serving_line.put(f"Bowl #{i % size}")
         i += 1
         # sleep can represent that the thread is doing some io task
-        time.sleep(0.5)
+        time.sleep(0.2)
 
 
 if __name__ == '__main__':

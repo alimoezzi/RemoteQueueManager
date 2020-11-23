@@ -11,7 +11,7 @@ class QueueManager(BaseManager):
 QueueManager.register('get_queue')
 QueueManager.register('get_max')
 
-num_consumer = 10
+num_consumer = 5
 
 
 def cpu_work(work_units):
