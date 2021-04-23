@@ -15,9 +15,7 @@ num_consumer = 5
 
 
 def cpu_work(work_units):
-    x = 0
-    for w in range(work_units * 1_000_000):
-        x += 1
+    x = sum(1 for _ in range(work_units * 1_000_000))
 
 
 def consumer(r_manger):
